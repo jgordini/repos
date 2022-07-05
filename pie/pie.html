@@ -1,10 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
 </head>
 <body>
-$END$
+        <h1>Circe Demo</h1>
+
+        <div id="circle"></div>
+
+
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <script>
+            var r = 300;
+            randX = d3.randomNormal(-r, r)();
+            randY = d3.randomNormal(-r, r)();
+            //Create SVG element
+            var svg = d3.select("#circle")
+                .append("svg")
+                .attr("width", r)
+                .attr("height", r);
+
+            //Create group element
+            var g = svg.append("g")
+                .attr("transform", function(d, i) {
+                    return "translate(0,0)";
+                });
+
+            //Create and append ellipse element into group
+            g.append("ellipse")
+                .attr("cx", 150)
+                .attr("cy", 150)
+                .attr("rx", 150)
+                .attr("ry", 150)
+                .attr("stroke-width", 2)
+                .attr("stroke", "#7E7E7E")
+                .style("fill", "none")
+                .append("rect")
+            //Create and append rectangle element into group
+            g.append("rect")
+                .attr("x", 0)
+                .attr("y", 0)
+                .attr("width", 300)
+                .attr("height", 300)
+                .attr("stroke-width", 2)
+                .attr("stroke", "#7E7E7E")
+                .style("fill", "none")
+                .append("circleDot")
+            //Create and append points element into group
+            g.append("ellipse")
+                .data(randX)
+                .attr("cx", randX)
+                .attr("cy", randY)
+                .attr("rx", 23)
+                .attr("ry", 23)
+                .attr("stroke-width", 2)
+                .attr("stroke", "#7E7E7E")
+                .style("fill", "none")
+                .append("rect")
+
+                var myData = ["Hello World!"];
+
+                var p = d3.select("body")
+                .selectAll("p")
+                .data(myData)
+                .text(function (d) {
+                return d;
+            });
+        </script>
 </body>
 </html>
