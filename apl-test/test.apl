@@ -8,7 +8,6 @@
 </head>
 <body>
 ⊃ b ⍝ First
-⍨ `b ⍝ First
 (⊃⌽∘,)b ⍝ Last
 ⊣⌿b ⍝ Top Row
 ⊢⌿b ⍝ Bottom Row
